@@ -1,0 +1,22 @@
+# vim: ft=bash
+colors () {
+  for i in {0..255} ; do
+    printf "\x1b[38;5;${i}mcolor${i}\n"
+  done
+}
+
+dict () {
+  curl dict://dict.org/d:$1
+}
+
+weather () {
+  curl wttr.in/$1
+}
+
+checkcert () {
+  openssl s_client -connect $1:443 -showcerts
+}
+
+generate_random_string () {
+  cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1
+}

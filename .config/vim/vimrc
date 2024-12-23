@@ -1,0 +1,12 @@
+" vim: ft=vim
+syntax on
+colorscheme default
+set expandtab
+set filetype=on
+set modeline
+set modelines=5
+set shiftwidth=4
+set tabstop=4
+set textwidth=100
+" increase copy / paste buffer
+set viminfo='20,<1000,s1000

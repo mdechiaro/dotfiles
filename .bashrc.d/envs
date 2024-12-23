@@ -1,0 +1,14 @@
+# vim: ft=bash
+# keep these env vars at top for other envs use them
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_DATA_HOME="${HOME}/.local/share"
+# sort the rest
+export EDITOR="vim"
+export GIT_EDITOR="vim"
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
+export GPG_TTY=$(tty)
+export HISTCONTROL=ignoreboth
+export HISTTIMEFORMAT="%y-%m-%d | "
+export LESS="-R -s -M +Gg"
+export PATH="${PATH}:${HOME}/venv/bin"

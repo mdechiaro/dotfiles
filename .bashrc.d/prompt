@@ -1,0 +1,70 @@
+# vim: ft=bash
+set_prompt () {
+  show_git_tree=true
+  tmux_pwd_status=true
+  custom_colors=false
+
+  # colors
+  blk='\e[0;30m' # Black
+  red='\e[0;31m' # Red
+  grn='\e[0;32m' # Green
+  ylw='\e[0;33m' # Yellow
+  blu='\e[0;34m' # Blue
+  pur='\e[0;35m' # Purple
+  cyn='\e[0;36m' # Cyan
+  wht='\e[0;37m' # White
+
+  # bold colors
+  bblk='\e[1;30m' # Black
+  bred='\e[1;31m' # Red
+  bgrn='\e[1;32m' # Green
+  bylw='\e[1;33m' # Yellow
+  bblu='\e[1;34m' # Blue
+  bpur='\e[1;35m' # Purple
+  bcyn='\e[1;36m' # Cyan
+  bwht='\e[1;37m' # White
+
+  # allow tmux status line to see the $(PWD) for localhost
+  if [[ $tmux_pwd_status = true ]]; then
+    PS1="\[\033]0;\u@\h:\w\007\]"
+  fi
+
+  # set root colors
+  if [[ ${EUID} == 0 ]] ; then
+    if [[ $custom_colors = true ]]; then
+      PS1+="\[$bred\]\u\[$red\]@\[$bred\]\h \[$bred\]\W "
+    else
+      PS1+="\u@\h \W "
+    fi
+  else
+    # set user colors
+    if [[ $custom_colors = true ]]; then
+      PS1+="\[$bblk\]\u\[$wht\]@\[$bblk\]\h \[$bblk\]\W "
+    else
+      PS1+="\u@\h \W "
+    fi
+  fi
+
+  # show git tree on shell prompt
+  if [[ $show_git_tree = true ]]; then
+    # for non-root only
+    if [[ ${EUID} != 0 ]] ; then
+
+      function parse_git_branch {
+        ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+        echo "("${ref#refs/heads/}")"
+      }
+
+      PS1+="\[$grn\]\$(parse_git_branch)"
+      fi
+  fi
+
+  # set remaining prompt back to white
+  PS1+="$ \[$wht\]"
+}
+
+case "$TERM" in
+  xterm*|screen*)
+    PROMPT_COMMAND='set_prompt'
+    ;;
+esac

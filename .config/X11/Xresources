@@ -1,0 +1,4 @@
+! vim: ft=xdefaults
+
+#include "conf.d/colors.conf"
+#include "conf.d/xterm.conf"

@@ -1,0 +1,6 @@
+# vim: ft=bash
+if command -v tmux > /dev/null && test -f ${HOME}/.config/tmux/tmux.conf; then
+  if [ -z $TMUX ] && [ $EUID != 0 ]; then
+    $(which tmux) attach -d || $(which tmux) new
+  fi
+fi

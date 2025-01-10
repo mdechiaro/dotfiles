@@ -12,3 +12,4 @@ export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="%y-%m-%d | "
 export LESS="-R -s -M +Gg"
 export PATH="${PATH}:${HOME}/venv/bin"
+export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket

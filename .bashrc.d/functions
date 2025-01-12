@@ -5,10 +5,6 @@ colors () {
   done
 }
 
-dict () {
-  curl dict://dict.org/d:$1
-}
-
 weather () {
   curl wttr.in/$1
 }

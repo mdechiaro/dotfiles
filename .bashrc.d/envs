@@ -1,8 +1,19 @@
 # vim: ft=bash
-# keep these env vars at top for other envs use them
-export XDG_CACHE_HOME="${HOME}/.cache"
-export XDG_CONFIG_HOME="${HOME}/.config"
-export XDG_DATA_HOME="${HOME}/.local/share"
+
+# If xdg vars are not set, then enable paths defined in docs.
+# https://specifications.freedesktop.org/basedir-spec/latest/#variables
+if [ -z $XDG_CACHE_HOME ]; then
+  export XDG_CACHE_HOME="${HOME}/.cache"
+fi
+
+if [ -z $XDG_CONFIG_HOME ]; then
+  export XDG_CONFIG_HOME="${HOME}/.config"
+fi
+
+if [ -z $XDG_DATA_HOME ]; then
+  export XDG_DATA_HOME="${HOME}/.local/share"
+fi
+
 # sort the rest
 export EDITOR="vim"
 export GIT_EDITOR="vim"
@@ -10,6 +21,6 @@ export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export GPG_TTY=$(tty)
 export HISTCONTROL=ignoreboth
 export HISTTIMEFORMAT="%y-%m-%d | "
-export LESS="-R -s -M +Gg"
+export LESS="-R -g"
 export PATH="${PATH}:${HOME}/venv/bin"
 export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket

@@ -1,6 +1,6 @@
 # vim: ft=bash
-set_prompt () {
 
+set_prompt () {
   # colors
   black="\e[0;30m"
   blue="\e[0;34m"
@@ -11,8 +11,13 @@ set_prompt () {
   white="\e[0;37m"
   yellow="\e[0;33m"
 
-  # set initial layout
-  PS1="\u@\h: \W "
+  # set xterm title to user@host:dir
+  # shows info of remote machine
+  # tmux requires "set -g default-terminal "xterm-256color" to work
+  PS1="\[\e]0;\u@\h:\w\a\]"
+
+  # set window to user@host:dir
+  PS1+="\u@\h: \W "
 
   # show git tree if applicable
   PS1+="\[$green\]\$(parse_git_branch)\[$white\]"

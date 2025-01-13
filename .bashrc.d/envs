@@ -29,4 +29,3 @@ export LESS="-F -R -g -i -j10 --use-color"
 export MANPAGER="less ${LESS} -Dd+r -Du+m"
 export MANROFFOPT="-P -c"
 export PATH="${PATH}:${HOME}/venv/bin"
-export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/ssh-agent.socket

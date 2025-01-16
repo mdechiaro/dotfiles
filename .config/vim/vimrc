@@ -10,3 +10,4 @@ set tabstop=4
 set textwidth=100
 " increase copy / paste buffer
 set viminfo='20,<1000,s1000
+set viminfofile=$XDG_STATE_HOME/vim/viminfo

@@ -23,9 +23,14 @@ export EDITOR="vim"
 export GIT_EDITOR="vim"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export GPG_TTY=$(tty)
-export HISTCONTROL=ignoreboth
+export HISTCONTROL="ignoreboth"
+export HISTFILE="${XDG_STATE_HOME}/bash_history"
 export HISTTIMEFORMAT="%y-%m-%d | "
 export LESS="-F -R -g -i -j10 --use-color"
 export MANPAGER="less ${LESS} -Dd+r -Du+m"
 export MANROFFOPT="-P -c"
 export PATH="${PATH}:${HOME}/venv/bin"
+
+if systemctl is-active --user ssh-agent.service > /dev/null; then
+  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi

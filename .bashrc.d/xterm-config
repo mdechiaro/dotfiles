@@ -1,4 +1,7 @@
 # vim: ft=bash
-if command -v xrdb > /dev/null && test -f ${XDG_CONFIG_HOME}/X11/Xresources; then
-  xrdb -load -I${XDG_CONFIG_HOME}/X11 ${XDG_CONFIG_HOME}/X11/Xresources
+
+if [ $XDG_SESSION_TYPE == "wayland" ]; then
+  if command -v xrdb > /dev/null && test -f ${XDG_CONFIG_HOME}/X11/Xresources; then
+    xrdb -load -I${XDG_CONFIG_HOME}/X11 ${XDG_CONFIG_HOME}/X11/Xresources
+  fi
 fi

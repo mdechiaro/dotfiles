@@ -1,0 +1,7 @@
+# vim: ft=bash
+
+if [ -f ${XDG_CONFIG_HOME}/systemd/user/ssh-agent.service ]; then
+  if ! systemctl is-enabled --user ssh-agent.service > /dev/null; then
+    systemctl enable --user --now ssh-agent.service
+  fi
+fi

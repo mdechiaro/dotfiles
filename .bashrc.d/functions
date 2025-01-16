@@ -6,7 +6,8 @@ colors () {
 }
 
 weather () {
-  curl wttr.in/$1
+  loc=$1
+  curl wttr.in/$loc?uQ
 }
 
 checkcert () {

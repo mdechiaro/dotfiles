@@ -1,5 +1,0 @@
-# vim: ft=bash
-
-if test -f ${XDG_CONFIG_HOME}/systemd/user/ssh-agent.service; then
-  [[ $(systemctl is-active --user ssh-agent.service) == "active" ]] || systemctl enable --user --now ssh-agent.service
-fi

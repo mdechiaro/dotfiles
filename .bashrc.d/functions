@@ -11,14 +11,28 @@ weather () {
 }
 
 checkcert () {
-  openssl s_client -connect $1:443 -showcerts
-}
-
-generate_random_string () {
-  cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w $1 | head -n 1
+  fqdn=$1
+  openssl s_client -connect $fqdn:443 -showcerts
 }
 
 parse_git_branch () {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   echo "("${ref#refs/heads/}")"
+}
+
+radio () {
+  # station urls: https://www.radio-browser.info
+  case "${1}" in
+    kexp)
+    mpv http://live-mp3-128.kexp.org/kexp128.mp3
+    ;;
+    wfmt)
+    mpv https://wfmt.streamguys1.com/main-source
+    ;;
+  esac
+}
+
+random_string () {
+  num_chars=$1
+  cat /dev/random | tr -dc 'a-zA-Z0-9' | fold -w $num_chars | head -n 1
 }

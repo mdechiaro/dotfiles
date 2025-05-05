@@ -19,7 +19,7 @@
 
 [credential]
   helper = cache --timeout 28800
-  helper = oauth
+  helper = oauth -device
 
 [init]
   defaultBranch = main

@@ -1,0 +1,5 @@
+if $(host firefox.incus > /dev/null); then
+  alias firefox="incus exec firefox -- su -l user -c firefox"
+else
+  unalias firefox
+fi

@@ -21,6 +21,13 @@
   helper = cache --timeout 28800
   helper = oauth -device
 
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  defaultKeyCommand = ssh-add -L
+  allowedSignersFile = ~/.ssh/allowed_signers
+
 [init]
   defaultBranch = main
 

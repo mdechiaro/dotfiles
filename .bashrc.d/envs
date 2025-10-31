@@ -38,6 +38,7 @@ export GPG_TTY=$(tty)
 export HISTCONTROL="ignoreboth"
 export HISTFILE="${XDG_STATE_HOME}/bash_history"
 export HISTTIMEFORMAT="%y-%m-%d | "
+export LANG="en_US.UTF-8"
 export LESS="-F -R -g -i -j10 --use-color"
 export MANPAGER="less ${LESS} -Dd+r -Du+m"
 export MANROFFOPT="-P -c"

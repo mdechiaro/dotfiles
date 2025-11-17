@@ -1,5 +1,9 @@
 # vim: ft=bash
 
+if ! [ -d $XDG_STATE_HOME/vim ]; then
+  mkdir -p $XDG_STATE_HOME/vim
+fi
+
 # check if vim supports XDG env vars
 if ! $(vim --version | grep -q XDG_CONFIG_HOME); then
   # create symlink workaround if it doesn't support it

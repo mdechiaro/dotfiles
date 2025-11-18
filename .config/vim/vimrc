@@ -11,3 +11,14 @@ set textwidth=100
 " increase copy / paste buffer
 set viminfo='20,<1000,s1000
 set viminfofile=$XDG_STATE_HOME/vim/viminfo
+
+" https://github.com/junegunn/vim-plug
+call plug#begin()
+
+Plug 'dense-analysis/ale'
+Plug 'jamessan/vim-gnupg'
+Plug 'rodjek/vim-puppet'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()

@@ -4,6 +4,16 @@ if ! [ -d $XDG_STATE_HOME/vim ]; then
   mkdir -p $XDG_STATE_HOME/vim
 fi
 
+if ! [ -d $XDG_CONFIG_HOME/vim/autoload ]; then
+  mkdir -p $XDG_CONFIG_HOME/vim/autoload
+fi
+
+# vim plugin manager
+if ! [ -f $XDG_CONFIG_HOME/vim/autoload/plug.vim ]; then
+  wget -q https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+    -O $XDG_CONFIG_HOME/vim/autoload/plug.vim
+fi
+
 # check if vim supports XDG env vars
 if ! $(vim --version | grep -q XDG_CONFIG_HOME); then
   # create symlink workaround if it doesn't support it

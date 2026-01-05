@@ -44,6 +44,10 @@ export MANPAGER="less ${LESS} -Dd+r -Du+m"
 export MANROFFOPT="-P -c"
 export PATH="${PATH}:${HOME}/venv/bin"
 
+if $(python --help-env | grep -q PYTHON_HISTORY); then
+  export PYTHON_HISTORY="${XDG_STATE_HOME}/python_history"
+fi
+
 if systemctl is-active --user ssh-agent.service > /dev/null; then
   export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi

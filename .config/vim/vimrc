@@ -1,6 +1,8 @@
 " vim: ft=vim
 syntax on
 colorscheme default
+set complete+=k
+set dictionary=/usr/share/dict/words
 set expandtab
 set filetype=on
 set modeline

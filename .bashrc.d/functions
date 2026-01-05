@@ -12,7 +12,8 @@ weather () {
 
 checkcert () {
   fqdn=$1
-  openssl s_client -connect $fqdn:443 -showcerts
+  port=${2:-443}
+  openssl s_client -connect $fqdn:$port -showcerts
 }
 
 parse_git_branch () {
@@ -33,6 +34,6 @@ radio () {
 }
 
 random_string () {
-  num_chars=$1
+  num_chars=${1:-32}
   cat /dev/random | tr -dc 'a-zA-Z0-9' | fold -w $num_chars | head -n 1
 }

@@ -23,3 +23,6 @@ nmap <F4> :%s/\s\+$//<CR>
 
 " toggle spell check
 :map <F5> :setlocal spell! spelllang=en_us<CR>
+
+" clear search highlighting
+nnoremap <Esc> :nohlsearch<CR>

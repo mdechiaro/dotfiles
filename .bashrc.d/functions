@@ -25,7 +25,17 @@ parse_python_venv () {
   if [ -z $VIRTUAL_ENV_PROMPT ]; then
     return
   else
-    echo "($VIRTUAL_ENV_PROMPT)"
+    # python 3.12 adds parentheses to venv name, but 3.14+ does not
+    # the case statement keeps format consistent for different versions
+    case "$VIRTUAL_ENV_PROMPT" in
+      \(*|*\))
+      # strip whitespace in variable
+      echo "${VIRTUAL_ENV_PROMPT//[[:space:]]/}"
+      ;;
+      *)
+      echo "($VIRTUAL_ENV_PROMPT)"
+      ;;
+    esac
   fi
 }
 

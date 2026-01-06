@@ -21,6 +21,14 @@ parse_git_branch () {
   echo "("${ref#refs/heads/}")"
 }
 
+parse_python_venv () {
+  if [ -z $VIRTUAL_ENV_PROMPT ]; then
+    return
+  else
+    echo "($VIRTUAL_ENV_PROMPT)"
+  fi
+}
+
 radio () {
   # station urls: https://www.radio-browser.info
   case "${1}" in

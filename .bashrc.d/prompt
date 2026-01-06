@@ -19,7 +19,10 @@ set_prompt () {
   # set window to user@host:dir
   PS1+="\u@\h: \W "
 
-  # show git tree if applicable
+  # show python venv
+  PS1+="\[$green\]\$(parse_python_venv)\[$white\]"
+
+  # show git tree
   PS1+="\[$green\]\$(parse_git_branch)\[$white\]"
 
   # set last character on prompt

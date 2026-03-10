@@ -30,22 +30,38 @@ if [ -z $XDG_STATE_HOME ]; then
   fi
 fi
 
-# sort the rest
+export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME}/claude"
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
 export GPG_TTY=$(tty)
 export HISTCONTROL="ignoreboth"
-export HISTFILE="${XDG_STATE_HOME}/bash_history"
+
+if ! [ -d "${XDG_STATE_HOME}/bash" ]; then
+  mkdir -p "${XDG_STATE_HOME}/bash"
+fi
+
+export HISTFILE="${XDG_STATE_HOME}/bash/history"
 export HISTTIMEFORMAT="%y-%m-%d | "
 export LANG="en_US.UTF-8"
 export LESS="-F -R -g -i -j10 --use-color"
+
+if ! [ -d "${XDG_STATE_HOME}/less" ]; then
+  mkdir -p "${XDG_STATE_HOME}/less"
+fi
+
+export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
 export MANPAGER="less ${LESS} -Dd+r -Du+m"
 export MANROFFOPT="-P -c"
 export PATH="${PATH}:${HOME}/venv/bin"
 
 if $(python3 --help-env | grep -q PYTHON_HISTORY); then
-  export PYTHON_HISTORY="${XDG_STATE_HOME}/python_history"
+
+  if ! [ -d "${XDG_STATE_HOME}/python" ]; then
+    mkdir -p "${XDG_STATE_HOME}/python"
+  fi
+
+  export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history"
 fi
 
 export PYTHONDONTWRITEBYTECODE=1

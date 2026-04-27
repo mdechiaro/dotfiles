@@ -45,6 +45,9 @@ radio () {
     kexp)
     mpv http://live-mp3-128.kexp.org/kexp128.mp3
     ;;
+    wcxp-lp)
+    mpv https://peridot.streamguys1.com:5185/live
+    ;;
     wfmt)
     mpv https://wfmt.streamguys1.com/main-source
     ;;

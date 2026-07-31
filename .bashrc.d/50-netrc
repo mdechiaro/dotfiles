@@ -1,5 +1,9 @@
 # vim: ft=bash
 
+if ! [ -d ${XDG_CONFIG_HOME}/netrc ]; then
+  mkdir ${XDG_CONFIG_HOME}/netrc
+fi
+
 if ! [ -f ${XDG_BIN_HOME}/git-credential-netrc ]; then
   wget -q https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/credential/netrc/git-credential-netrc.perl \
     -O ${XDG_BIN_HOME}/git-credential-netrc

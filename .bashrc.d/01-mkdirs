@@ -15,7 +15,3 @@ done
 if ! [ -d ${XDG_BIN_HOME} ]; then
   mkdir ${XDG_BIN_HOME}
 fi
-
-if ! [ -d ${XDG_CONFIG_HOME}/netrc ]; then
-  mkdir ${XDG_CONFIG_HOME}/netrc
-fi

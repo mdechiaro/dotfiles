@@ -11,7 +11,3 @@ for h in ${HISTORIES[@]}; do
     mkdir "${XDG_STATE_HOME}/$h"
   fi
 done
-
-if ! [ -d ${XDG_BIN_HOME} ]; then
-  mkdir ${XDG_BIN_HOME}
-fi

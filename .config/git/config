@@ -21,7 +21,7 @@
   whitespace=trailing-space
 
 [credential]
-  helper = netrc
+  helper = netrc -f ~/.config/netrc/netrc.gpg
 
 [gpg]
   format = ssh

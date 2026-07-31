@@ -1,0 +1,7 @@
+# vim: ft=bash
+
+if ! [ -f ${XDG_BIN_HOME}/git-credential-netrc ]; then
+  wget -q https://raw.githubusercontent.com/git/git/refs/heads/master/contrib/credential/netrc/git-credential-netrc.perl \
+    -O ${XDG_BIN_HOME}/git-credential-netrc
+  chmod +x ${XDG_BIN_HOME}/git-credential-netrc
+fi

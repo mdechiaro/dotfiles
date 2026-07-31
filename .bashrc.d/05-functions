@@ -6,11 +6,12 @@ colors () {
 }
 
 weather () {
-  loc=$1
-  curl wttr.in/$loc?uQ
+  [ -z "$1" ] && { echo "Usage: weather <location>" >&2; return 1; }
+  curl wttr.in/$1?uQ
 }
 
 checkcert () {
+  [ -z "$1" ] && { echo "Usage: checkcert <fqdn> [port]" >&2; return 1; }
   fqdn=$1
   port=${2:-443}
   openssl s_client -connect $fqdn:$port -showcerts
@@ -43,13 +44,17 @@ radio () {
   # station urls: https://www.radio-browser.info
   case "${1}" in
     kexp)
-    mpv http://live-mp3-128.kexp.org/kexp128.mp3
+    mpv https://kexp.streamguys1.com/kexp160.aac
     ;;
     wcxp-lp)
     mpv https://peridot.streamguys1.com:5185/live
     ;;
     wfmt)
     mpv https://wfmt.streamguys1.com/main-source
+    ;;
+    *)
+    echo "Usage: radio <kexp|wcxp-lp|wfmt>" >&2
+    return 1
     ;;
   esac
 }

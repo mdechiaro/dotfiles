@@ -1,0 +1,5 @@
+# vim: ft=bash
+
+if ! [ -d ${XDG_DATA_HOME}/venv ]; then
+  python3 -m venv ${XDG_DATA_HOME}/venv
+fi

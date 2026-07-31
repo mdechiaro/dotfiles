@@ -1,0 +1,23 @@
+# vim: ft=bash
+
+export BUNDLE_USER_CACHE="${XDG_CACHE_HOME}/bundle"
+export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME}/claude"
+export EDITOR="vim"
+export GIT_EDITOR="vim"
+export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
+export GPG_TTY=$(tty)
+export HISTCONTROL="ignoreboth"
+export HISTFILE="${XDG_STATE_HOME}/bash/history"
+export HISTTIMEFORMAT="%y-%m-%d | "
+export LANG="en_US.UTF-8"
+export LESS="-F -R -g -i -j10 --use-color"
+export LESSHISTFILE="${XDG_STATE_HOME}/less/history"
+export MANPAGER="less ${LESS} -Dd+r -Du+m"
+export MANROFFOPT="-P -c"
+export PATH="${XDG_DATA_HOME}/venv/bin:$XDG_BIN_HOME:$HOME/bin:$PATH"
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHON_HISTORY="${XDG_STATE_HOME}/python/history"
+
+if systemctl is-active --user ssh-agent.service > /dev/null; then
+  export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi

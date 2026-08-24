@@ -1,0 +1,68 @@
+# vim: ft=muttrc
+source $XDG_CONFIG_HOME/mutt/my_vars
+source $XDG_CONFIG_HOME/mutt/colors
+alternative_order multipart/related text/html text/plain
+auto_view text/calendar
+auto_view text/html
+bind index G last-entry
+bind index,pager \ej sidebar-next
+bind index,pager \ek sidebar-prev
+bind index,pager \eo sidebar-open
+bind pager G bottom
+bind pager J next-page
+bind pager K previous-page
+bind pager j next-line
+bind pager k previous-line
+macro index <F10> "<tag-pattern>~A<enter><tag-prefix-cond><set-flag>D<untag-pattern>~T<enter>"
+macro index <F11> "mutt_archive_year.sh<enter>" "Archive a specific year"
+macro index <F9> "<tag-pattern>~D<enter><tag-prefix-cond><clear-flag>D<untag-pattern>~T<enter>"
+macro index,pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+mime_lookup application/octet-stream
+set certificate_file           = $XDG_CACHE_HOME/mutt/certificates
+set date_format                = "%y %b %d %r"
+set delete                     = ask-yes
+set folder                     = "imaps://$my_imap"
+set forward_format             = "Fwd: %s"
+set from                       = $my_email
+set header_cache               = $XDG_CACHE_HOME/mutt/headers
+set imap_authenticators        = "xoauth2"
+set imap_check_subscribed      = yes
+set imap_deflate               = yes
+set imap_list_subscribed       = yes
+set imap_oauth_refresh_command = "mutt_oauth2.py $XDG_CACHE_HOME/mutt/token"
+set imap_qresync               = yes
+set imap_user                  = $my_email
+set include                    = yes
+set index_format               = "%4C %?X?%X&?%?M?(T%03M)&?%Z %D %-15.15L [%4c] %s"
+set ispell                     = "aspell -e -c"
+set mail_check                 = 30
+set mail_check_stats           = yes
+set mailcap_path               = $XDG_CONFIG_HOME/mutt/mailcap
+set mbox_type                  = Maildir
+set message_cache_clean        = yes
+set message_cachedir           = $XDG_CACHE_HOME/mutt/bodies
+set mime_forward               = "no"
+set my_realname                = $my_name
+set pager_stop
+set postponed                  = $XDG_CACHE_HOME/mutt/drafts
+set record                     = "=Sent Items"
+set reverse_alias              = yes
+set sidebar_format             = "%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_short_path         = yes
+set sidebar_sort_method        = alpha
+set sidebar_visible            = yes
+set sidebar_width              = 24
+set signature                  = $XDG_CONFIG_HOME/mutt/signature
+set sleep_time                 = 0
+set smtp_authenticators        = "xoauth2"
+set smtp_oauth_refresh_command = "mutt_oauth2.py $XDG_CACHE_HOME/mutt/token"
+set smtp_url                   = "smtp://$my_email@$my_smtp/"
+set sort                       = threads
+set sort_alias                 = alias
+set spoolfile                  = "=Inbox"
+set ssl_force_tls              = yes
+set ssl_verify_dates           = yes
+set ssl_verify_host            = yes
+set status_on_top              = yes
+set timeout                    = 90
+unset markers

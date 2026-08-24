@@ -1,1 +1,3 @@
+.config/mutt/my_vars
+.config/mutt/signature
 .config/netrc/*.gpg

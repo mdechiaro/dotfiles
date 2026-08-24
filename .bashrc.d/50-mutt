@@ -1,0 +1,9 @@
+# vim: ft=bash
+
+if command -v mutt > /dev/null && test -f ${XDG_CONFIG_HOME}/mutt/muttrc; then
+  if ! [ -f ${XDG_BIN_HOME}/mutt_oauth2.py ]; then
+    wget -q 'https://gitlab.com/muttmua/mutt/-/raw/master/contrib/mutt_oauth2.py?ref_type=heads' \
+      -O ${XDG_BIN_HOME}/mutt_oauth2.py
+    chmod +x ${XDG_BIN_HOME}/mutt_oauth2.py
+  fi
+fi

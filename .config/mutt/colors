@@ -1,0 +1,24 @@
+# vim: ft=muttrc
+
+color attachment yellow black
+color body red default "([0-9]{1,3}[\.]){3}[0-9]{1,3}"
+color body red default "(http|https|ftp|ftps)://[A-Za-z0-9@/_.#~&=%?+-]+"
+color body red default "[A-Za-z0-9_.-]+@[A-Za-z0-9_.-]+\.(com|edu|org|net|gov|us)"
+color error brightred black
+color hdrdefault white black
+color index blue black ~F
+color index brightwhite black "~N|~O"
+color indicator black white
+color markers red black
+color message white black
+color normal white black
+color prompt brightmagenta black
+color quoted white black
+color search white black
+color sidebar_highlight black white
+color sidebar_indicator black white
+color sidebar_new brightwhite default
+color signature white black
+color status black blue
+color tilde brightmagenta black
+color tree white black
